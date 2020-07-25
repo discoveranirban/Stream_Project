@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer } from 'redux-form'
 
 const INITITAL_STATE={
     isSignedIn:false,
@@ -24,5 +25,6 @@ const logStat=(state=INITITAL_STATE,action)=>{
 }
 
 export default combineReducers({
-    logStat:logStat
+    logStat:logStat,
+    form:reducer
 })
