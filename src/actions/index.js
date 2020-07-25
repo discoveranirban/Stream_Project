@@ -1,28 +1,21 @@
-// export const makeSignIn=()=>{
-//     return{
-//         type:'SIGN_IN',
-//         payload:true
-//     }
-// }
 
-// export const makeSignOut=()=>{
-//     return{
-//         type:'SIGN_OUT',
-//         payload:false
-//     }
-// }
-
-export const changeStat=(val)=>{
+export const changeStat=(val,id)=>{
     if(val){
         return{
             type:'SIGN_IN',
-            payload:true
+            payload:{
+                status:true,
+                id:id
+            }
         }
     }
     else{
         return{
             type:'SIGN_OUT',
-            payload:false
+            payload:{
+                status:false,
+                id:null
+            }
         }
     }
 }

@@ -1,13 +1,26 @@
 import { combineReducers } from 'redux';
 
-const logStat=(stat=false,action)=>{
-    if(action==='SIGN_OUT'){
-        return action.payload
+const INITITAL_STATE={
+    isSignedIn:false,
+    userId:null
+}
+
+const logStat=(state=INITITAL_STATE,action)=>{
+    if(action.type==='SIGN_OUT'){
+        return {
+            ...state,
+            isSignedIn:action.payload.status,
+            userId:action.payload.id
+        }
     }
-    else if(action==='SIGN_IN'){
-        return action.payload
+    else if(action.type==='SIGN_IN'){
+        return {
+            ...state,
+            isSignedIn:action.payload.status,
+            userId:action.payload.id
+        }
     }
-    return stat;
+    return state;
 }
 
 export default combineReducers({
