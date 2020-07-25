@@ -1,5 +1,7 @@
 import React from 'react';
-import { Field, reduxForm, formValues } from 'redux-form'
+import { Field, reduxForm } from 'redux-form' 
+import { connect } from 'react-redux'
+import { createStream } from '../../actions'
 
 class StreamCreate extends React.Component {
 
@@ -27,8 +29,9 @@ class StreamCreate extends React.Component {
 
     // formProps.input has value,label,onChange all properties in it..so we just destructure by ...formProps.input
 
-    onSubmit(formValues){
-        console.log(formValues)
+    onSubmit=(formValues)=>{
+        //console.log(this)
+        this.props.createStream(formValues);
     }
 
     render() {
@@ -58,7 +61,9 @@ const validate = formValues=>{
 }
 
 
-export default reduxForm({
+const formWraped = reduxForm({     // since reduxForm is similar to connect() we are separating out into peices instead of applying connect on top of it
     form: 'streamCreate',          // this 'form' tag links redux form with the 'form' tag we use inside our render method..
     validate:validate              // the validate function will run on every interaction/re-render with the form.
 })(StreamCreate);
+
+export default connect(null,{createStream})(formWraped);  

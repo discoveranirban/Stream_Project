@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer } from 'redux-form'
+import streamReducers from './streamReducers'
 
 const INITITAL_STATE={
     isSignedIn:false,
@@ -26,5 +27,6 @@ const logStat=(state=INITITAL_STATE,action)=>{
 
 export default combineReducers({
     logStat:logStat,
-    form:reducer
+    form:reducer,
+    streams:streamReducers
 })
