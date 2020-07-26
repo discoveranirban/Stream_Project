@@ -1,4 +1,5 @@
 import streams from '../apis/streams'
+import history from '../history'
 
 export const changeStat=(val,id)=>{
     if(val){
@@ -29,12 +30,17 @@ export const createStream = (formValues)=>{
             type:'CREATE_STREAM',
             payload:response.data
         })
+        history.push('/')
     }
 }
 
 // when action creator return function it gets called by two parameters, dispatch function and getState function
 // which gives us access to all of our state. so we pull out UserID from there.
 // to add userId to formValues object we use ES6 syntax. We spread out all the formValues key value pairs and add userId to it
+
+// PROGRAMATIC NAVIGATION
+// we just push the URL we want to navigate to manually to our own created history object..
+
 
 export const fetchStreams = ()=>{
     return async (dispatch)=>{
