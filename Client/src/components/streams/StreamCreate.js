@@ -17,7 +17,7 @@ class StreamCreate extends React.Component {
 
     renderInput=(formProps)=>{
         console.log(formProps)
-        console.log(this)
+        //console.log(this)
         return (
             <div>
                 <label>{formProps.label}</label>

@@ -26,6 +26,7 @@ const App = () => {
     )
 }
 
-// we will not use BrowserRouter as we will create our own history object, which to use, we need plain router
-// /:id is used for Wildcard Navigation...we will get this id passed on to display particular stream..if no number is present or some number which has no data, still we will display the stream edit page
+// we will not use BrowserRouter as we will create our own history object, which to use, we need plain ReactRouter..This will help us to gather many information from the URL, like selected stream id
+// /:id is used for Wildcard Navigation...we will get this id passed on to display particular stream through the URL...[advantage of using custom browser object]..if no number is present or some number which has no data, still we will display the stream edit page
+
 export default App;

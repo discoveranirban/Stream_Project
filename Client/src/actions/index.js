@@ -64,13 +64,18 @@ export const fetchStream = (id)=>{
 
 export const editStream=(id,formValues)=>{
     return async (dispatch)=>{
-        const response=await streams.put(`/streams/${id}`,formValues)
+        // const response=await streams.put(`/streams/${id}`,formValues)
+        const response=await streams.patch(`/streams/${id}`,formValues)
         dispatch({
             type:'EDIT_STREAM',
             payload:response.data
         })
+        history.push('/')
     }
 }
+
+// NOTE put will UPDATE ALL PROPERTIES OF A RECORD..so as we filtered out the userId before updating, after update we will not have access to our EDIT?DELETE buttons
+// Therefore PATCH is used which will only UPDATE SOME OF THE PROPERTIES OF A RECORD
 
 export const deleteStream=(id)=>{
     return async (dispatch)=>{
